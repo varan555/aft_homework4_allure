@@ -9,6 +9,7 @@ import steps.BaseSteps;
 
 import static org.junit.Assert.assertTrue;
 import static steps.BaseSteps.getDriver;
+import static utils.AllureUtils.addScreenshot;
 
 public class MortgageFinishedHousing extends BasePage{
 
@@ -41,12 +42,22 @@ public class MortgageFinishedHousing extends BasePage{
 
 
 
-    public void chooseDiscounts(String nameDiscounts){
+    public void chooseDiscountsOff(String nameDiscounts){
         switchFrame(frame);
-        WebElement nameOfDiscounts = discounts.findElement
-                (By.xpath("//div[@class = 'dcCalc_switch-tablet__row' and contains(.,'"+nameDiscounts+"')]//span[@class = 'dcCalc_switch__icon-on']"));
-        clickElement(nameOfDiscounts);
+        WebElement nameOfDiscounts = getDriver().findElement
+                (By.xpath("//div[@class = 'dcCalc_switch-tablet__row' and contains(.,'"+nameDiscounts+"')]//span[contains(@class, 'dcCalc_switch__icon-on')]"));
+        clickElement2(nameOfDiscounts);
         customWaiting();
+        getDriver().switchTo().defaultContent();
+    }
+
+    public void chooseDiscountsOn(String nameDiscounts){
+        switchFrame(frame);
+        WebElement nameOfDiscounts = getDriver().findElement
+                (By.xpath("//div[@class = 'dcCalc_switch-tablet__row' and contains(.,'"+nameDiscounts+"')]//span[contains(@class, 'dcCalc_switch__icon-off')]"));
+        clickElement2(nameOfDiscounts);
+        customWaiting();
+        getDriver().switchTo().defaultContent();
     }
 
     public MortgageFinishedHousing checkResult(String nameField, Double expected) {
@@ -56,7 +67,12 @@ public class MortgageFinishedHousing extends BasePage{
         String result1 = fieldResult.getText().replaceAll("\\u20BD","");
         String result2 = result1.replaceAll("\\s", "");
         double result = Double.parseDouble(result2);
-        assertTrue("Значение поля "+nameField+" не соответствует ожидаемому "+result+"!="+expected, expected==result);
+        try {
+            assertTrue("Значение поля " + nameField + " не соответствует ожидаемому " + result + "!=" + expected, expected == result);
+        }
+        catch (Throwable e) {
+            addScreenshot();
+        }
         getDriver().switchTo().defaultContent();
         return this;
 

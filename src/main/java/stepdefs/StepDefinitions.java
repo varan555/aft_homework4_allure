@@ -23,9 +23,14 @@ public class StepDefinitions {
         mainPageSteps.chooseElementSubmenu(title);
     }
 
-    @When("включается отключается скидка :")
+    @When("включается скидка {string} :")
     public void chooseDiscounts(String nameDiscounts) {
-        mortgageSteps.chooseDiscounts(nameDiscounts);
+        mortgageSteps.chooseDiscountsOn(nameDiscounts);
+    }
+
+    @When("отключается скидка {string} :")
+    public void chooseDiscountsOff(String nameDiscounts) {
+        mortgageSteps.chooseDiscountsOff(nameDiscounts);
     }
 
     @When("заполняются поля:")

@@ -21,9 +21,15 @@ public class MortgageFinishedHousingSteps {
         new MortgageFinishedHousing().enterValue(nameField, value);
     }
 
-    @Step("Включение/отключение скидки за {nameDiscounts}")
-    public MortgageFinishedHousingSteps chooseDiscounts(String nameDiscounts){
-    new MortgageFinishedHousing().chooseDiscounts(nameDiscounts);
+    @Step("отключение скидки за {nameDiscounts}")
+    public MortgageFinishedHousingSteps chooseDiscountsOff(String nameDiscounts){
+    new MortgageFinishedHousing().chooseDiscountsOff(nameDiscounts);
+        return  this;
+    }
+
+    @Step("включение скидки скидки за {nameDiscounts}")
+    public MortgageFinishedHousingSteps chooseDiscountsOn(String nameDiscounts){
+        new MortgageFinishedHousing().chooseDiscountsOn(nameDiscounts);
         return  this;
     }
 

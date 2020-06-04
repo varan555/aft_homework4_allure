@@ -19,6 +19,12 @@ public abstract class BasePage {
         BaseSteps.wait.until(ExpectedConditions.visibilityOf(element));
         BaseSteps.wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
+    public void clickElement2(WebElement element){
+        //((JavascriptExecutor) BaseSteps.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+        BaseSteps.wait.until(ExpectedConditions.visibilityOf(element));
+        BaseSteps.wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
+
 
     public void switchFrame(WebElement element){
         BaseSteps.wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
