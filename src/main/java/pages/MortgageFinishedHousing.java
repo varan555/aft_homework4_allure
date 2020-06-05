@@ -65,14 +65,11 @@ public class MortgageFinishedHousing extends BasePage{
         WebElement fieldResult = results.findElement
                 (By.xpath(".//div[@class='dcCalc_result-calculation' and contains(., '"+nameField+"')]//span"));
         String result1 = fieldResult.getText().replaceAll("\\u20BD","");
-        String result2 = result1.replaceAll("\\s", "");
+        String result3 = result1.replaceAll("%","");
+        String result4 = result3.replaceAll("\\s", "");
+        String result2 = result4.replaceAll("\\,", "\\.");
         double result = Double.parseDouble(result2);
-        try {
-            assertTrue("Значение поля " + nameField + " не соответствует ожидаемому " + result + "!=" + expected, expected == result);
-        }
-        catch (Throwable e) {
-            addScreenshot();
-        }
+        assertTrue("Значение поля " + nameField + " не соответствует ожидаемому " + result + "!=" + expected, expected == result);
         getDriver().switchTo().defaultContent();
         return this;
 
