@@ -64,10 +64,10 @@ public class MortgageFinishedHousing extends BasePage{
         switchFrame(frame);
         WebElement fieldResult = results.findElement
                 (By.xpath(".//div[@class='dcCalc_result-calculation' and contains(., '"+nameField+"')]//span"));
-        String result1 = fieldResult.getText().replaceAll("\\u20BD","");
-        String result3 = result1.replaceAll("%","");
-        String result4 = result3.replaceAll("\\s", "");
-        String result2 = result4.replaceAll("\\,", "\\.");
+        String result1 = fieldResult.getText().replaceAll("[\\u20BD%\\s]+","");
+//        String result3 = result1.replaceAll("%","");
+//        String result4 = result3.replaceAll("\\s", "");
+        String result2 = result1.replaceAll("\\,", "\\.");
         double result = Double.parseDouble(result2);
         assertTrue("Значение поля " + nameField + " не соответствует ожидаемому " + result + "!=" + expected, expected == result);
         getDriver().switchTo().defaultContent();
