@@ -4,12 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import steps.BaseSteps;
-
 import static org.junit.Assert.assertTrue;
 import static steps.BaseSteps.getDriver;
-import static utils.AllureUtils.addScreenshot;
 
 public class MortgageFinishedHousing extends BasePage{
 
