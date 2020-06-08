@@ -1,10 +1,13 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven 3.6.3'
+        jdk 'jdk8'
+    }
     stages {
         stage('build') {
             steps {
-                withMaven(maven : 'maven_3_6_3') {
-                    bash 'mvn clean -Denvironment=opera ' +
+                       sh 'mvn clean -Denvironment=opera ' +
                             '-Dcucumber.options="--tags @correct" ' +
                             '-Dtest=CucumberRunner ' +
                             '-DfailIfNoTests=false ' +
@@ -13,4 +16,3 @@ pipeline {
             }
         }
     }
-}
