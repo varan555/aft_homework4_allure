@@ -4,20 +4,8 @@ pipeline {
         maven 'maven_3.5.4'
     }
 
+ 
     stages {
-        //node{
-            stage ('Build') {
-
-                git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
-
-                withMaven(
-                        maven: 'maven-3',
-                        mavenSettingsConfig: 'my-maven-settings') {
-                    sh "mvn clean verify"
-                }
-            }
-        
-
         stage('Run test') {
             steps {
                 withMaven(maven: 'maven_3.5.4') {
