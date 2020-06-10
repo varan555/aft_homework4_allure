@@ -20,8 +20,9 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>pipeline-maven</artifactId>
-            <version>3.8.2-rc760.5a13886fe875</version>
+            <version>3.8.2</version>
         </dependency>
+
 
         <dependency>
             <groupId>org.junit.vintage</groupId>
