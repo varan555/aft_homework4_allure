@@ -20,7 +20,7 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>pipeline-maven</artifactId>
-            <version>3.0.2</version>
+            <version>2.5.0</version>
         </dependency>
 
         <dependency>
