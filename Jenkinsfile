@@ -6,13 +6,17 @@ pipeline {
     stages {
         stage('Run test') {
             steps {
-                withMaven(maven: 'maven_3.6.3') {
-                        bat 'mvn clean -Denvironment=opera ' +
-                                '-Dcucumber.options="--tags @correct' +
-                                '-Dtest=CucumberRunner ' +
-                                '-DfailIfNoTests=false ' +
-                                'test'
+
+                    script {
+                        bat(script: "powershell cmd 'mvn clean -Denvironment=opera -Dcucumber.options=\"--tags @correct \" -Dtest=CucumberRunner -DfailIfNoTests=false test'")
                     }
+//  //              withMaven(maven: 'maven_3.6.3') {
+//                        bat 'mvn clean -Denvironment=opera ' +
+//                                '-Dcucumber.options="--tags @correct' +
+//                                '-Dtest=CucumberRunner ' +
+//                                '-DfailIfNoTests=false ' +
+//                                'test'
+//                    }
                 }
             }
     //    }
