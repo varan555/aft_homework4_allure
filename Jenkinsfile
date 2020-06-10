@@ -1,19 +1,16 @@
 pipeline {
     agent any
-    tools {
-        maven 'maven_3.5.4'
-    }
 
- 
     stages {
         stage('Run test') {
             steps {
-                withMaven(maven: 'maven_3.5.4') {
-                    bat 'mvn clean -Denvironment=opera ' +
-                            '-Dcucumber.options="--tags @correct" ' +
-                            '-Dtest=CucumberRunner ' +
-                            '-DfailIfNoTests=false ' +
-                            'test'
+                def mvnHome = tool name: 'maven-3', type: 'maven'
+                withMaven() {
+                    bat "${mvnHome}/bin/mvn clean -Denvironment=opera " +
+                            '-Dcucumber.options="--tags @correct' +
+                            "-Dtest=CucumberRunner " +
+                            "-DfailIfNoTests=false " +
+                            "test"
                 }
             }
         }
