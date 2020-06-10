@@ -4,7 +4,7 @@ pipeline {
         stage('Run test') {
             steps {
                 withMaven(maven: 'maven_3.6.3') {
-                        bat 'mvn clean -Denvironment=opera ' +
+                        bat 'mvn clean -Denvironment=chrome ' +
                                 '-Dcucumber.options="--tags @correct" ' +
                                 '-Dtest=CucumberRunner ' +
                                 '-DfailIfNoTests=false ' +
