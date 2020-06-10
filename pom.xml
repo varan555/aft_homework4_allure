@@ -16,14 +16,12 @@
     </properties>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.apache.maven/maven-plugin-api -->
+        <!-- https://mvnrepository.com/artifact/org.jenkins-ci.plugins/pipeline-maven -->
         <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-plugin-api</artifactId>
-            <version>3.6.3</version>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>pipeline-maven</artifactId>
+            <version>3.8.3-rc767.7b369ba5a037</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
