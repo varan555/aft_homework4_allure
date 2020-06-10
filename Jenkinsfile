@@ -1,10 +1,12 @@
 pipeline {
+    environment {
+        mvnHome = tool name: 'maven-3', type: 'maven'
+    }
     agent any
-
     stages {
         stage('Run test') {
             steps {
-                step {def mvnHome = tool name: 'maven-3', type: 'maven'}
+                step {}
      //           withMaven() {
                     step {
                         bat "${mvnHome}/bin/mvn clean -Denvironment=opera " +
