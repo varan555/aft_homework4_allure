@@ -5,7 +5,7 @@ pipeline {
     }
 
     stages {
-        node{
+        //node{
             stage ('Build') {
 
                 git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
@@ -16,7 +16,7 @@ pipeline {
                     sh "mvn clean verify"
                 }
             }
-        }
+        
 
         stage('Run test') {
             steps {
